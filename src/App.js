@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from './pages/home';
+import ListaProductos from './pages/listaProductos';
+import Detalle from "./pages/detalle";
+import Carrito from "./pages/carrito";
 
 function App() {
+  localStorage.setItem('carritoGuardado',JSON.stringify(null));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<ListaProductos />} />
+        <Route path="/detalle" element={<Detalle />} />
+        <Route path="/carrito" element={<Carrito />} />
+      </Routes>
+    </Router>
   );
 }
 
