@@ -24,18 +24,16 @@ const handleClick = () =>{
 return (
 <Box
     sx={{
-    '& > :not(style)': { m: 1, width: '25ch' },
+    '& > :not(style)': { m: 1, width: '60ch' },
     }}
     noValidate
     autoComplete="off"
->
+>   
     <form onSubmit={handleSubmit}>
-    <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={(e) =>setText(e.target.value)} />
-    <Button variant="outlined"type='submit'><Search/></Button>
+        <TextField id="Buscar" label="Buscar" variant="outlined" onChange={(e) =>setText(e.target.value)} sx={{ width: '40ch',backgroundColor:"#e8e8e8" }} />
+        <Button variant="outlined"type='submit' sx={{ height: '7ch',width: '15ch',marginLeft:'1ch',backgroundColor:'#e8e8e8' }}><Search/></Button>
     </form>
-    <Button variant="outlined" onClick={
-        handleClick
-    }>Ir al carrito</Button>
+    <Button variant="outlined" sx={{ width: '10ch',backgroundColor:'#e8e8e8' }} onClick={handleClick}>Ir al carrito</Button>
 </Box>
 );
 }

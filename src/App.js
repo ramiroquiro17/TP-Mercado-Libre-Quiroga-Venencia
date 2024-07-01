@@ -3,6 +3,7 @@ import Home from './pages/home';
 import ListaProductos from './pages/listaProductos';
 import Detalle from "./pages/detalle";
 import Carrito from "./pages/carrito";
+import DetalleCompra from "./pages/detalleCompra";
 
 function App() {
   localStorage.setItem('carritoGuardado',JSON.stringify(null));
@@ -13,6 +14,7 @@ function App() {
         <Route path="/productos" element={<ListaProductos />} />
         <Route path="/detalle" element={<Detalle />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/detalleCompra" element={<DetalleCompra />} />
       </Routes>
     </Router>
   );

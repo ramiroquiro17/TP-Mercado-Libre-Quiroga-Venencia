@@ -12,8 +12,10 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <BarraBusqueda mostrarProductos={mostrarProductos}/>
-        
+        <h1>
+          TIENDA ONLINE
+        </h1>
+        <BarraBusqueda mostrarProductos={mostrarProductos}/>        
       </header>
     </div>
   );

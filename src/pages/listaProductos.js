@@ -1,8 +1,8 @@
 import '../App.css';
-import BarraBusqueda from '../components/search';
 import ProductCard from '../components/card';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Navbar from '../components/barra';
 
 function ListaProductos() {
   const [productos, setProductos] =useState([]);
@@ -19,14 +19,14 @@ function ListaProductos() {
       nombre={item.title}
       imagen={item.thumbnail}
       id={item.id}
-      
+      precio={item.price}
     />
   )); 
   return (
     
     <div className="App">
+      <Navbar />
       <header className="App-header">
-        <BarraBusqueda />
         {renderProductos}
       </header>
     </div>
