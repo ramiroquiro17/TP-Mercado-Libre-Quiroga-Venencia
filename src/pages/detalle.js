@@ -54,27 +54,30 @@ export default function Detalle() {
     <><Navbar />
     <header className='Carrito-header'>
       <Box sx={{ minWidth: 275}}> 
-        <Card variant="outlined" sx={{padding:5, display:'flex'}}>
-          <Box>
-            <Typography variant="h3" component="div">
-                {data.title}
-            </Typography>
-            {(data.pictures) && ( <img src={data.pictures[0].url} alt={data.title} />)}
-          </Box>
-          <CardContent>
-            
+        <Card variant="outlined" sx={{padding:5}}>
+          <Typography variant="h3" component="div">
+            {data.title}
+          </Typography>
+          <Box sx={{padding:5, display:'flex'}}>
             <Box>
-              <Typography variant="h5" component="div">
-              Precio: $ { data.price}
-              </Typography>
-              <Typography variant="h5" component="div">
-                Descripción: {data.title}
-              </Typography>
+              {(data.pictures) && ( <img src={data.pictures[0].url} alt={data.title} />)}
             </Box>
-          </CardContent>
-          <CardActions>
-            <Button size="small" onClick={handleClick}>Agregar al Carrito</Button>
-          </CardActions>
+            <CardContent>
+              
+              <Box>
+                <Typography variant="h5" component="div">
+                Precio: $ { data.price}
+                </Typography>
+                <Typography variant="h5" component="div">
+                  Descripción: {data.title}
+                </Typography>
+                <Button variant="outlined" onClick={handleClick}>
+                  Agregar al Carrito
+                </Button>
+                
+              </Box>
+            </CardContent>
+          </Box>
         </Card>
       </Box>
     </header></>
