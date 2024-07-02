@@ -41,7 +41,6 @@ export default function Carrito() {
       }) 
       setPrecioTotal(precio)
     }
-    
     const renderCarrito = carrito.map((item,index) => (
       <CarritoCard 
       key={index}
@@ -59,23 +58,46 @@ export default function Carrito() {
     const handleClick = () =>{
       navigate("/detalleCompra")
     }
+    const handleClickVolver = () =>{
+      navigate("/")
+    }
+    const renderCondicional = () =>{
+      if (precioTotal ===0){
+        return (
+          <><Navbar />
+            <header className="App-header">
+              <h2>El carrito esta vacio</h2>
+              <Button variant="outlined"
+                onClick={handleClickVolver}>Volver al Inicio</Button>
+            </header></>
+        )
+      }else{
+        return(
+          <><Navbar />
+            <header className="Carrito-header">
+              <Box sx={{ minWidth: 275 , display:'flex'}}>
+                <Box>
+                  {renderCarrito}
+                </Box>
+                <Card variant="outlined" sx={{height:200, padding:5, marginTop:'1ch', marginLeft:'1ch'}}>
+                  <p>
+                    Precio Total: $ {precioTotal.toFixed(2)}
+                  </p>
+                  <Button variant="outlined"
+                    onClick={handleClick}
+                  >
+                    Realizar Compra
+                  </Button>
+                </Card >
+              </Box>
+            </header></>
+        )
+      }
+    }
+    
+    
+
   return (
-    <><Navbar /><header className="App-header">
-      <Box sx={{ minWidth: 275 , display:'flex'}}>
-        <Box>
-          {renderCarrito}
-        </Box>
-        <Card variant="outlined" sx={{height:200, padding:5, marginTop:'1ch', marginLeft:'1ch'}}>
-          <p>
-            Precio Total: $ {precioTotal.toFixed(2)}
-          </p>
-          <Button variant="outlined"
-            onClick={handleClick}
-          >
-            Realizar Compra
-          </Button>
-        </Card >
-      </Box>
-    </header></>
+    renderCondicional()
   );
 }

@@ -35,21 +35,44 @@ export default function DetalleCompra() {
       precio={item.price}  
       />
     )); 
-    const handleClick = () =>{
+    const handleClickConfirmar = () =>{
         carrito = []
         localStorage.setItem('carritoGuardado',JSON.stringify(carrito));
         navigate("/")
         window.alert('Compra confirmada');
       }
+      const handleClickCancelar = () =>{
+        navigate("/carrito")
+      }
   return (
-    <><Navbar /><Box sx={{ minWidth: 275 }}>
-      {renderDetalleCompra}
-      precio Total:{precioTotal.toFixed(2)}
-      <Button variant="outlined"
-        onClick={handleClick}
-      >
-        Confirmar
-      </Button>
-    </Box></>
+    <>
+      <Navbar />
+      <header className='Carrito-header'>
+        <h1>
+          Confirmar Compra
+        </h1>
+        <Box sx={{ minWidth: 275 }}>
+          {renderDetalleCompra}
+        </Box>
+        <p>
+          Precio Total: $ {precioTotal.toFixed(2)}
+        </p>
+        <Box sx={{display:'flex', justifyContent:'center',marginTop:'2ch'}}>
+        <Button variant="outlined"
+              onClick={handleClickConfirmar}
+              sx={{height:'8.5ch', marginLeft:'1ch'}}    
+            >
+              Confirmar
+          </Button>
+          <Button variant="outlined"
+              onClick={handleClickCancelar}
+              sx={{height:'8.5ch', marginLeft:'1ch'}}    
+            >
+              Cancelar
+          </Button>
+        </Box>
+        
+      </header>
+    </>
   );
 }

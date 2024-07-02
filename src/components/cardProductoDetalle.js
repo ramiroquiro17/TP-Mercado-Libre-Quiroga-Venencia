@@ -1,29 +1,32 @@
 import React,{useState} from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
 export default function CardProductoDetalle(props) {
   return (
-    <Box sx={{ minWidth: 275 }}>
+    <Box sx={{ width: 850 }}>
       <Card variant="outlined">
-        <React.Fragment>
-        <img src={props.imagen}/>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {props.nombre}
-          </Typography>
-          
-        </CardContent>
-        <CardActions>
-          cantidad: {props.cantidad}
-        precio: {(props.precio*props.cantidad).toFixed(2)}  
-        </CardActions>
-      </React.Fragment>
+        <Box sx={{display:'flex', padding:3}}>
+          <Box sx={{maxWidth:400}}>
+            <Typography variant="h5" component="div">
+              {props.nombre}
+            </Typography>
+            
+          </Box>
+          <Box sx={{marginLeft:5, marginRight:5}}>
+            <Typography variant="h5" component="div">
+            cantidad: {props.cantidad}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="h5" component="div">
+            precio: {(props.precio*props.cantidad).toFixed(2)}  
+            </Typography>
+            
+          </Box>
+        </Box>
       </Card>
     </Box>
   );

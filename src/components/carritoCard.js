@@ -25,9 +25,9 @@ export default function CarritoCard(props) {
   return (
     <Box sx={{ width: 900, marginTop:'1ch' }}>
       <Card variant="outlined">
-        <Box sx={{  display:'flex'}}>
+        <Box sx={{  display:'flex', alignItems: 'center'}}>
           <img src={props.imagen}/>
-          <Box sx={{width:'max'}}>
+          <Box sx={{width:'max', flex: 1, paddingLeft: '16px' }}>
             <CardContent>
               <Typography variant="h5" component="div">
                 {props.nombre}
@@ -35,21 +35,21 @@ export default function CarritoCard(props) {
               
             </CardContent>
           </Box>
-          <Box sx={{marginRight:'auto'}}>
-            <CardActions>
-            <Stack direction="row" spacing={2}>
-              <Button variant="outlined" onClick={handleClickRestar}>
-                -
-              </Button>
-              <Box sx={{margin:1}}>
-                {cantidad}
-              </Box>
-              <Button variant="outlined" onClick={handleClickSumar}>
-                +
-              </Button>
-            </Stack>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginRight: '16px' }}>
+            <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Stack direction="row" spacing={2}>
+                <Button variant="outlined" onClick={handleClickRestar}>
+                  -
+                </Button>
+                <Box sx={{margin:1}}>
+                  {cantidad}
+                </Box>
+                <Button variant="outlined" onClick={handleClickSumar}>
+                  +
+                </Button>
+              </Stack>
             </CardActions>
-            <p>
+            <p sx={{}}>
               $ {(props.precio*cantidad).toFixed(2)} 
             </p> 
         </Box>
@@ -58,4 +58,3 @@ export default function CarritoCard(props) {
     </Box>
   );
 }
-

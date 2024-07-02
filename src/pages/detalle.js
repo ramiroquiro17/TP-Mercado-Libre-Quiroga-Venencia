@@ -22,6 +22,7 @@ export default function Detalle() {
         //.then(data => console.log(data))
         .then(data => setData(data))
         .catch(error => console.error('Error fetchingdata:',error))
+        
     },[] )
     const handleClick = () =>{
         let primeraCompra = true
@@ -45,23 +46,37 @@ export default function Detalle() {
        localStorage.setItem('carritoGuardado',JSON.stringify(carrito));
        showAlert()
        
+       
     }
+    
   return (
-    <><Navbar /><Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">
-        <React.Fragment>
-          <CardContent>
-            <img src={data.thumbnail} />
-            <Typography variant="h5" component="div">
-              {data.title}
+    
+    <><Navbar />
+    <header className='Carrito-header'>
+      <Box sx={{ minWidth: 275}}> 
+        <Card variant="outlined" sx={{padding:5, display:'flex'}}>
+          <Box>
+            <Typography variant="h3" component="div">
+                {data.title}
             </Typography>
+            {(data.pictures) && ( <img src={data.pictures[0].url} alt={data.title} />)}
+          </Box>
+          <CardContent>
+            
+            <Box>
+              <Typography variant="h5" component="div">
+              Precio: $ { data.price}
+              </Typography>
+              <Typography variant="h5" component="div">
+                Descripción: {data.title}
+              </Typography>
+            </Box>
           </CardContent>
           <CardActions>
             <Button size="small" onClick={handleClick}>Agregar al Carrito</Button>
           </CardActions>
-        </React.Fragment>
-      </Card>
-    </Box></>
+        </Card>
+      </Box>
+    </header></>
   );
 }
-
